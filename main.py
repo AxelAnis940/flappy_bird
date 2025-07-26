@@ -61,10 +61,14 @@ def accueil():
                 run = False
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.collidepoint(event.pos):
                     run = False
                     jeu(WINDOW)  # ✅ on passe la fenêtre à la fonction jeu
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    run = False
+                    jeu(WINDOW)
 
         pygame.display.update()
         clock.tick(60)
